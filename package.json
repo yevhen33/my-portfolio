@@ -1,7 +1,6 @@
 {
   "name": "portfolio",
   "version": "1.0.0",
-  "description": "",
   "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -17,12 +16,25 @@
     "gulp-htmlmin": "^5.0.1",
     "gulp-imagemin": "^6.2.0",
     "gulp-rename": "^1.4.0",
-    "gulp-sass": "^4.1.0"
+    "gulp-sass": "^4.1.0",
+    "webpack": "^4.44.1",
+    "webpack-stream": "^6.0.0"
   },
   "browserslist": [
     "last 1 version",
     "> 1%",
     "maintained node versions",
     "not dead"
-  ]
+  ],
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yevhen33/my-portfolio.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/yevhen33/my-portfolio/issues"
+  },
+  "homepage": "https://github.com/yevhen33/my-portfolio#readme",
+  "description": ""
 }
