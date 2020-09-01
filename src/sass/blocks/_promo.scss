@@ -2,8 +2,9 @@
     min-height: 100vh;
     position: relative;
     background: url('../img/main-bg.jpg') no-repeat 50%/cover;
-    padding-top: 210px;
+    padding-top: 180px;
     &__subtitle {
+        color: #ffffff;
         position: relative;
         padding-left: 10px;
         z-index: 1;
@@ -31,5 +32,8 @@
             background: $main-color;
             color: #000000;
         }
+    }
+    .container {
+        padding-left: 50px;
     }
 }

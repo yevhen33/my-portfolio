@@ -86,6 +86,34 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./src/js/modules/colorBlack.js":
+/*!**************************************!*\
+  !*** ./src/js/modules/colorBlack.js ***!
+  \**************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+function colorBlack() {
+    const text = document.querySelector('.sidepanel__text'),
+          divider = document.querySelector('.sidepanel__divider');
+
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > (document.documentElement.clientHeight)/3) {
+            text.classList.add('black');
+            divider.classList.add('black');
+        } else {
+            text.classList.remove('black');
+            divider.classList.remove('black');
+        }
+    });
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (colorBlack);
+
+/***/ }),
+
 /***/ "./src/js/modules/openMenu.js":
 /*!************************************!*\
   !*** ./src/js/modules/openMenu.js ***!
@@ -95,17 +123,34 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-function openMenu(trigerSelector, contentSelector, closeSelector) {
+function openMenu(trigerSelector, contentSelector, closeSelector, overlaySelector) {
     const triger = document.querySelector(trigerSelector),
           menu = document.querySelector(contentSelector),
-          closeMenu = document.querySelector(closeSelector);
+          closeMenu = document.querySelector(closeSelector),
+          overlay = document.querySelector(overlaySelector);
+
+    function close() {
+        menu.classList.remove('active');
+        document.body.style.overflow = '';
+    }
 
     triger.addEventListener('click', () => {
         menu.classList.add('active');
+        document.body.style.overflow = 'hidden';
     });
 
-    closeMenu.addEventListener('click', () => {
-        menu.classList.remove('active');
+    closeMenu.addEventListener('click', close);
+
+    document.addEventListener('keydown', (e) => {
+        if (e.code === 'Escape' && menu.classList.contains('active')) {
+            close();
+        }
+    });
+
+    overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) {
+            close();
+        }
     });
 }
 
@@ -123,11 +168,14 @@ function openMenu(trigerSelector, contentSelector, closeSelector) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_openMenu__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/openMenu */ "./src/js/modules/openMenu.js");
+/* harmony import */ var _modules_colorBlack__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/colorBlack */ "./src/js/modules/colorBlack.js");
+
 
 
 window.addEventListener('DOMContentLoaded', () => {
 
-    Object(_modules_openMenu__WEBPACK_IMPORTED_MODULE_0__["default"])('.hamburger', '.menu', '.menu__close');
+    Object(_modules_openMenu__WEBPACK_IMPORTED_MODULE_0__["default"])('.hamburger', '.menu', '.menu__close', '.menu__overlay');
+    Object(_modules_colorBlack__WEBPACK_IMPORTED_MODULE_1__["default"])();
 });
 
 
