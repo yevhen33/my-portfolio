@@ -1,0 +1,70 @@
+.resume {
+    margin-top: 120px;
+    &__title {
+        text-align: center;
+        position: relative;
+        @include before_circle;
+        &:before {
+            top: -6px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+    &__subtitle {
+        margin-top: 6px;
+        text-align: center;
+    }
+    &__wrapper {
+        padding: 60px 70px 0 70px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 130px;
+    }
+    &__column {
+        &-title {
+            position: relative;
+            padding-left: 35px;
+            @include small_circle;
+        }
+        ul {
+            list-style-type: none;
+            li {
+                position: relative;
+                @include vertical_line;
+            }
+        }
+    }
+    &__item {
+        padding: 45px 0 0 45px;
+        position: relative;
+        @include horizontal_line;
+        &-header {
+            position: relative;
+            padding-left: 55px;
+            h4 {
+                line-height: 17px;
+            }
+        }
+        &-icon {
+            img {
+                max-width: 25px;
+                position: absolute;
+                top: 15px;
+                left: 15px;
+            }
+            @include before_circle;
+            &:before {
+                top: 0;
+            }
+        }
+        &-city {
+            font-size: 12px;
+            line-height: 18px;
+        }
+        &-body {
+            margin-top: 12px;
+            font-size: 12px;
+            line-height: 18px;
+        }
+    }
+}

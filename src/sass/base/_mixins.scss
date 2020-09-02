@@ -25,3 +25,41 @@
         transition: all 0.5s;
     }
 }
+
+@mixin small_circle {
+    &:before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: -7px;
+        width: 15px;
+        height: 15px;
+        border-radius: 100%;
+        background: $main-color;
+    }
+}
+
+@mixin vertical_line {
+    &:after {
+        content: '';
+        width: 1px;
+        height: calc(100% + 15px);
+        background-color: #000000;
+        position: absolute;
+        top: -15px;
+        left: 0;
+    }
+}
+
+@mixin horizontal_line {
+    &::before {
+        content: '';
+        width: 45px;
+        height: 1px;
+        background-color: #000000;
+        position: absolute;
+        top: 64px;
+        left: 0;
+    }
+}
