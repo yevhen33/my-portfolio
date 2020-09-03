@@ -158,6 +158,28 @@ function openMenu(trigerSelector, contentSelector, closeSelector, overlaySelecto
 
 /***/ }),
 
+/***/ "./src/js/modules/skill.js":
+/*!*********************************!*\
+  !*** ./src/js/modules/skill.js ***!
+  \*********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+const skill = () => {
+    const counters = document.querySelectorAll('.skills__counter__item-interest'),
+          lines = document.querySelectorAll('.skills__counter__item-body span');
+
+    counters.forEach((item, i) => {
+        lines[i].style.width = item.innerHTML;
+    });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (skill);
+
+/***/ }),
+
 /***/ "./src/js/script.js":
 /*!**************************!*\
   !*** ./src/js/script.js ***!
@@ -169,6 +191,8 @@ function openMenu(trigerSelector, contentSelector, closeSelector, overlaySelecto
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_openMenu__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/openMenu */ "./src/js/modules/openMenu.js");
 /* harmony import */ var _modules_colorBlack__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/colorBlack */ "./src/js/modules/colorBlack.js");
+/* harmony import */ var _modules_skill__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/skill */ "./src/js/modules/skill.js");
+
 
 
 
@@ -176,6 +200,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     Object(_modules_openMenu__WEBPACK_IMPORTED_MODULE_0__["default"])('.hamburger', '.menu', '.menu__close', '.menu__overlay');
     Object(_modules_colorBlack__WEBPACK_IMPORTED_MODULE_1__["default"])();
+    Object(_modules_skill__WEBPACK_IMPORTED_MODULE_2__["default"])();
 });
 
 

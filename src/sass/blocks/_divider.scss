@@ -2,9 +2,10 @@
     width: 60px;
     height: 3px;
     background-color: $main-color;
-    margin-top: 5px;
-    &__resume {
-        margin: 0 auto;
-        margin-top: 25px;
+    margin: 0 auto;
+    margin-top: 25px;
+    &__about {
+        margin: 0;
+        margin-top: 5px;
     }
 }
