@@ -1,0 +1,90 @@
+.contacts {
+    padding: 120px 0 90px 0;
+    &__wrapper {
+        display: grid;
+        grid-template-columns: 400px 580px;
+        justify-content: space-between;
+    }
+    &__photo {
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+    &__content {
+        padding-top: 7px;
+    }
+    &__title {
+        position: relative;
+        padding-left: 12px;
+        @include before_circle;
+    }
+    &__text {
+        margin-top: 20px;
+    }
+    &__social {
+        margin-top: 20px;
+    }
+    &__link {
+        margin-right: 20px;
+        img {
+            width: 30px;
+            height: 30px;
+        }
+    }
+    &__form {
+        margin-top: 30px;
+        display: grid;
+        grid-template: 45px 190px 45px / repeat(2, 280px);
+        justify-content: space-between;
+        row-gap: 25px;
+        label {
+            display: block;
+            position: absolute;
+            top: -8px;
+            left: 12px;
+            height: 18px;
+            font-size: 12px;
+            padding: 0 8px;
+            background: linear-gradient(180deg, rgba(210,210,210,1) 0%, rgba(210,210,210,1) 49%, rgba(255,255,255,1) 50%);
+            margin-bottom: 0;
+        }
+    }
+    &__input {
+        position: relative;
+        input {
+            width: 100%;
+            height: 100%;
+            padding: 0 20px;
+            font-size: 12px;
+        }
+    }
+    &__textarea {
+        grid-column: 1 / 3;
+        position: relative;
+        textarea {
+            width: 100%;
+            height: 100%;
+            resize: none;
+            padding: 20px;
+            font-size: 12px;
+        }
+    }
+    &__triggers {
+        grid-column: 1 / 3;
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+        column-gap: 35px;
+    }
+    &__policy {
+        font-size: 12px;
+        line-height: 18px;
+        display: flex;
+        align-items: center;
+        span {
+            margin-left: 10px;
+        }
+    }
+
+}
