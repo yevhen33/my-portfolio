@@ -112,13 +112,20 @@
         <div class="container">
             <div class="about__wrapper">
                 <div class="about__photo">
-                    <img src="./img/main-photo.jpg" alt="photo">
+                    <picture>
+                        <source media="(max-width: 768px)" srcset="img/main-photo-min.jpg">
+                        <source media="(min-width: 769px)" srcset="img/main-photo.jpg">
+                            <img src="img/main-photo.jpg" alt="photo">
+                    </picture>
                 </div>
                 <div class="about__descr">
                     <h2 class="title title_fz16 about__title">Про меня</h2>
                     <div class="title about__subtitle">Меня зовут Евгений</div>
                     <div class="divider divider__about"></div>
-                    <p class="about__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio odio nulla vitae. Numquam, voluptatem minus. Natus delectus in dignissimos deleniti impedit qui, ratione amet recusandae voluptate quam sed odio ducimus. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus, nisi hic quam aspernatur beatae laborum. Perspiciatis autem odio aperiam excepturi inventore cumque asperiores dignissimos laborum, reprehenderit dicta doloremque libero ipsam.</p>
+                    <p class="about__text">
+                        Здравствуйте, я начинающий web-разработчик. Я разносторонний человек с опытом работы в различных сферах деятельности. Более 7-ми лет работал в сфере ресторанного бизнеса на различных должностях, мне нравиться общаться и узнавать людей. Однажды посмотрев онлайн вебинар по web-разработке загорелся этим и начал свой путь.<br> 
+                        В настоящее время обучаюсь web-разработке и разработке приложений на онлайн курсах, имею не большой багаж знаний. Я хочу участвовать в разработке и создании цифровых продуктов как для бизнеса, так и для потребителя, а также брать для себя больше новой работы и повысить свои навыки веб-разработчика. Меня вдохновляет создание отличного продукта с людьми, которые так же увлечены созданием чего-то потрясающего, как и я.
+                    </p>
                 </div>
                 <div class="about__skills">
                     <div class="about__skill">
@@ -128,7 +135,7 @@
                         <div>
                             <div class="title title_fz14">Web-разработка</div>
                             <div class="about__skill-descr">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                Мне нравится создавать вещи с нуля и воплощать интерактивные идеи в жизнь в браузере. Я разрабатываю и кодирую красивые простые вещи, и мне нравится то, что я делаю.
                             </div>
                         </div>
                     </div>
@@ -139,7 +146,7 @@
                         <div>
                             <div class="title title_fz14">Разработка приложений</div>
                             <div class="about__skill-descr">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                Учусь разрабатывать приложения на React.
                             </div>
                         </div>
                     </div>
@@ -150,7 +157,7 @@
                         <div>
                             <div class="title title_fz14">UI/UX Design</div>
                             <div class="about__skill-descr">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                Я ценю простую структуру контента, чистые шаблоны дизайна, продуманное взаимодействие и приятный пользовательский интерфейс.
                             </div>
                         </div>
                     </div>
@@ -407,7 +414,7 @@
                         Доставка грузов из Китая
                     </div>
                 </a>
-                <a href="#" class="portfolio__work">
+                <a href="#" class="portfolio__work pulse">
                     <img src="img/work/pulse.jpg" alt="pulse">
                     <div class="portfolio__descr"> 
                         <span>RunSmart</span>
@@ -431,7 +438,7 @@
                         Решение для Вашего бизнеса
                     </div>
                 </a>
-                <a href="#" class="portfolio__work">
+                <a href="#" class="portfolio__work windows">
                     <img src="img/work/windows.jpg" alt="window">
                     <div class="portfolio__descr">
                         <span>ИВРАС</span>
