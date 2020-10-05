@@ -1,8 +1,9 @@
-function openMenu(trigerSelector, contentSelector, closeSelector, overlaySelector) {
+function openMenu(trigerSelector, contentSelector, closeSelector, overlaySelector, linkSelector) {
     const triger = document.querySelector(trigerSelector),
           menu = document.querySelector(contentSelector),
           closeMenu = document.querySelector(closeSelector),
           overlay = document.querySelector(overlaySelector),
+          closeLink = document.querySelectorAll(linkSelector),
           scroll = calcScroll();
 
     function close() {
@@ -18,6 +19,10 @@ function openMenu(trigerSelector, contentSelector, closeSelector, overlaySelecto
     });
 
     closeMenu.addEventListener('click', close);
+
+    closeLink.forEach( item => {
+        item.addEventListener('click', close);
+    });
 
     document.addEventListener('keydown', (e) => {
         if (e.code === 'Escape' && menu.classList.contains('active')) {

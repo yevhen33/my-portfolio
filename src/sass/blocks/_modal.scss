@@ -1,0 +1,32 @@
+.overlay {
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    background-color: rgba(0,0,0, .56);
+    &.active {
+        display: block;
+    }
+}
+.modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 280px;
+    min-height: 150px;
+    background-color: #f2f2f2;
+    box-shadow: inset 0px 0px 40px 25px rgba(255, 165, 1, .55);
+    padding: 20px 20px 40px 20px;
+    &__title {
+        font-size: 16px;
+        font-weight: bold;
+        text-align: center;
+    }
+    &__descr {
+        margin-top: 10px;
+        font-size: 14px;
+        text-align: center;
+    }
+}

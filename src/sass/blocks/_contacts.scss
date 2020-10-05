@@ -85,6 +85,17 @@
         span {
             margin-left: 10px;
         }
+        &.hide {
+            display: none;
+        }
     }
 
+}
+
+.status {
+    font-size: 14px;
+    line-height: 18px;
+    display: flex;
+    align-items: center;
+    color: red;
 }

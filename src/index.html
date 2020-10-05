@@ -63,22 +63,22 @@
             <nav>
                 <ul class="menu__list">
                     <li class="menu__link">
-                        <a href="#">ПРО МЕНЯ</a>
+                        <a href="#about">ПРО МЕНЯ</a>
                     </li>
                     <li class="menu__link">
-                        <a href="#">МОЙ ОПЫТ</a>
+                        <a href="#resume">МОЙ ОПЫТ</a>
                     </li>
                     <li class="menu__link">
-                        <a href="#">МОИ НАВЫКИ</a>
+                        <a href="#skills">МОИ НАВЫКИ</a>
                     </li>
                     <li class="menu__link">
-                        <a href="#">МОИ РАБОТЫ</a>
+                        <a href="#portfolio">МОИ РАБОТЫ</a>
                     </li>
                     <li class="menu__link">
-                        <a href="#">ПРАЙС-ЛИСТ</a>
+                        <a href="#price">ПРАЙС-ЛИСТ</a>
                     </li>
                     <li class="menu__link">
-                        <a href="#">КОНТАКТЫ</a>
+                        <a href="#contacts">КОНТАКТЫ</a>
                     </li>
                 </ul>
             </nav>
@@ -92,7 +92,7 @@
         <div class="menu__overlay"></div>
     </div>
 
-    <section class="promo">
+    <section id="up" class="promo">
         <div class="hamburger">
             <span></span>
             <span class="long"></span>
@@ -102,13 +102,13 @@
             <div class="title title_fz16 promo__subtitle">Меня зовут Евгений Колесников</div>
             <h1 class="title title_fz48">Я web-разработчик <br> из города Харьков</h1>
             <div class="promo__btns">
-                <a href="#" class="promo__link">Портфолио</a>
-                <a href="#" class="promo__link">Контакты</a>
+                <a href="#portfolio" class="promo__link">Портфолио</a>
+                <a href="#contacts" class="promo__link">Контакты</a>
             </div>
         </div>
     </section>
 
-    <section class="about">
+    <section id="about" class="about">
         <div class="container">
             <div class="about__wrapper">
                 <div class="about__photo">
@@ -166,7 +166,7 @@
         </div>
     </section>
 
-    <section class="resume">
+    <section id="resume" class="resume">
         <div class="container">
             <h2 class="title title_fz16 title__section-title">Опыт</h2>
             <div class="title title__section-subtitle">Чем я буду полезен</div>
@@ -275,7 +275,7 @@
         </div>
     </section>
 
-    <section class="skills">
+    <section id="skills" class="skills">
         <div class="container">
             <h2 class="title title_fz16 title__section-title">Навыки</h2>
             <div class="title title__section-subtitle">Что я использую в работе</div>
@@ -391,7 +391,7 @@
         </div>
     </section>
 
-    <section class="portfolio">
+    <section id="portfolio" class="portfolio">
         <div class="container">
             <h2 class="title title_fz16 title__section-title">Портфолио</h2>
             <div class="title title__section-subtitle">Мои работы</div>
@@ -458,7 +458,7 @@
         </div>
     </section>
 
-    <section class="price">
+    <section id="price" class="price">
         <div class="container">
             <h2 class="title title_fz16 title__section-title">Прайс-лист</h2>
             <div class="divider"></div>
@@ -489,7 +489,7 @@
 
     <section class="contacts">
         <div class="container">
-            <div class="contacts__wrapper">
+            <div id="contacts" class="contacts__wrapper">
                 <div class="contacts__photo">
                     <img src="img/main-photo.jpg" alt="photo">
                 </div>
@@ -518,15 +518,15 @@
 
                     <form action="#" class="contacts__form">
                         <div class="contacts__input">
-                            <input required name="name" id="name" type="text">
+                            <input required name="name" id="name" placeholder="Введите имя" type="text">
                             <label for="name">Ваше имя</label>
                         </div>
                         <div class="contacts__input">
-                            <input required name="email" id="email" type="email">
+                            <input required name="email" id="email" placeholder="Введите E-mail" type="email">
                             <label for="email">Ваша почта</label>
                         </div>
                         <div class="contacts__textarea">
-                            <textarea name="text" id="text"></textarea>
+                            <textarea required name="text" id="text" placeholder="Введите сообщение"></textarea>
                             <label for="text">Ваше сообщение</label>
                         </div>
                         <div class="contacts__triggers">
@@ -542,9 +542,20 @@
         </div>
     </section>
 
+    <a href="#up" class="pageUp">
+        <img src="icons/up.svg" alt="up">
+    </a>
+
     <footer>
         <!-- Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a> -->
     </footer>
+
+    <div class="overlay">
+        <div class="modal">
+            <div class="modal__title">Спасибо за ваше внимание!</div>
+            <div class="modal__descr">Я свяжусь с вами в ближайшее время!</div>
+        </div>
+    </div>
 
     <script src="js/bundle.js"></script>
 </body>

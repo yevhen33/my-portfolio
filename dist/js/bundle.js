@@ -114,6 +114,95 @@ function colorBlack() {
 
 /***/ }),
 
+/***/ "./src/js/modules/forms.js":
+/*!*********************************!*\
+  !*** ./src/js/modules/forms.js ***!
+  \*********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+function forms() {
+    const form = document.querySelector('form'),
+          inputs = document.querySelectorAll('input'),
+          textarea = document.querySelector('textarea'),
+          modal = document.querySelector('.contacts__triggers'),
+          replacement = document.querySelector('.contacts__policy'),
+          over = document.querySelector('.overlay');
+
+    const message = {
+        loading: 'Загрузка данных...',
+        success: 'Спасибо! Я получил ваше сообщение',
+        failure: 'Произошла ошибка! Повторите отправку чуть позже.'
+    };
+
+    const postData = async (url, data) => {
+        replacement.classList.add('hide');
+        document.querySelector('.status').textContent = message.loading;
+        let result = await fetch(url, {
+            method: "POST",
+            body: data
+        });
+        return await result.text();
+    }
+
+    function clearInputs() {
+        inputs.forEach(input => {
+            input.value = '';
+        });
+        textarea.value = '';
+    }
+
+    function showThanks() {
+        setTimeout(() => {
+            over.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }, 2000);
+    }
+
+    function hideThanks() {
+        setTimeout(() => {
+            over.classList.remove('active');
+            document.body.style.overflow = '';
+        }, 5000);
+    }
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        let statusMessage = document.createElement('div');
+        statusMessage.classList.add('status');
+        modal.appendChild(statusMessage);
+
+        let closeMessage = () => {setInterval(() => {
+            replacement.classList.remove('hide');
+            statusMessage.remove();
+            }, 2000);
+        };
+
+        const formData = new FormData(form);
+
+        postData('mailer/server.php', formData)
+            .then(result => {
+                console.log(result);
+                statusMessage.textContent = message.success;
+                showThanks();   
+                hideThanks();     
+            })
+            .catch(() => statusMessage.textContent = message.failure)
+            .finally(() => {
+                clearInputs();
+                closeMessage();
+                clearInterval(closeMessage);
+            });
+    });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (forms);
+
+/***/ }),
+
 /***/ "./src/js/modules/openMenu.js":
 /*!************************************!*\
   !*** ./src/js/modules/openMenu.js ***!
@@ -123,11 +212,12 @@ function colorBlack() {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-function openMenu(trigerSelector, contentSelector, closeSelector, overlaySelector) {
+function openMenu(trigerSelector, contentSelector, closeSelector, overlaySelector, linkSelector) {
     const triger = document.querySelector(trigerSelector),
           menu = document.querySelector(contentSelector),
           closeMenu = document.querySelector(closeSelector),
           overlay = document.querySelector(overlaySelector),
+          closeLink = document.querySelectorAll(linkSelector),
           scroll = calcScroll();
 
     function close() {
@@ -143,6 +233,10 @@ function openMenu(trigerSelector, contentSelector, closeSelector, overlaySelecto
     });
 
     closeMenu.addEventListener('click', close);
+
+    closeLink.forEach( item => {
+        item.addEventListener('click', close);
+    });
 
     document.addEventListener('keydown', (e) => {
         if (e.code === 'Escape' && menu.classList.contains('active')) {
@@ -174,6 +268,61 @@ function openMenu(trigerSelector, contentSelector, closeSelector, overlaySelecto
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (openMenu);
+
+/***/ }),
+
+/***/ "./src/js/modules/pageUp.js":
+/*!**********************************!*\
+  !*** ./src/js/modules/pageUp.js ***!
+  \**********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+function pageUp() {
+    const up = document.querySelector('.pageUp');
+
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > window.innerHeight) {
+            up.classList.add('active');
+        } else {
+            up.classList.remove('active');
+        }
+    });
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (pageUp);
+
+/***/ }),
+
+/***/ "./src/js/modules/scroll.js":
+/*!**********************************!*\
+  !*** ./src/js/modules/scroll.js ***!
+  \**********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+function scroll() {
+    const anchors = document.querySelectorAll('a[href*="#"]');
+
+    anchors.forEach(item => {
+        item.addEventListener('click', (e) => {
+            if (e.target) {
+                e.preventDefault();
+            }
+            const blockID = item.getAttribute('href');
+            document.querySelector('' + blockID).scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        });
+    });
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (scroll);
 
 /***/ }),
 
@@ -211,15 +360,25 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_openMenu__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/openMenu */ "./src/js/modules/openMenu.js");
 /* harmony import */ var _modules_colorBlack__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/colorBlack */ "./src/js/modules/colorBlack.js");
 /* harmony import */ var _modules_skill__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/skill */ "./src/js/modules/skill.js");
+/* harmony import */ var _modules_pageUp__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/pageUp */ "./src/js/modules/pageUp.js");
+/* harmony import */ var _modules_scroll__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/scroll */ "./src/js/modules/scroll.js");
+/* harmony import */ var _modules_forms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/forms */ "./src/js/modules/forms.js");
+
+
+
 
 
 
 
 window.addEventListener('DOMContentLoaded', () => {
+    "use strict";
 
-    Object(_modules_openMenu__WEBPACK_IMPORTED_MODULE_0__["default"])('.hamburger', '.menu', '.menu__close', '.menu__overlay');
+    Object(_modules_openMenu__WEBPACK_IMPORTED_MODULE_0__["default"])('.hamburger', '.menu', '.menu__close', '.menu__overlay', 'nav .menu__link');
     Object(_modules_colorBlack__WEBPACK_IMPORTED_MODULE_1__["default"])();
     Object(_modules_skill__WEBPACK_IMPORTED_MODULE_2__["default"])();
+    Object(_modules_pageUp__WEBPACK_IMPORTED_MODULE_3__["default"])();
+    Object(_modules_scroll__WEBPACK_IMPORTED_MODULE_4__["default"])();
+    Object(_modules_forms__WEBPACK_IMPORTED_MODULE_5__["default"])();
 });
 
 

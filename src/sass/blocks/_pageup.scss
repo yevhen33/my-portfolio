@@ -1,0 +1,16 @@
+.pageUp {
+    display: none;
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    width: 30px;
+    height: 30px;
+    img {
+        width: 100%;
+        opacity: 0.6;
+    }
+    &.active {
+        display: block; 
+    }
+    
+}
